@@ -77,7 +77,7 @@ def print_survey(args, subsurvey, indent = ''):
             answer = x.split(':')[0].lower()
             newanswer = ':'.join(x.split(':')[1:])
             if newanswer == '':
-                newanswer = answer
+                newanswer = x.split(':')[0]
             filterto[answer] = newanswer
     args = args[1:]
     subsurvey = sort_survey(subsurvey, i)
@@ -85,19 +85,36 @@ def print_survey(args, subsurvey, indent = ''):
     maxcount = sum([x[1] for x in answers])
     offset = 0
     answers_ = []
-    for answer, count in answers:
+    answered = {}
+    for answer_, count in answers:
+        answer = answer_
+        if (filterto is not None) and (answer.lower() in filterto):
+            answer = filterto[answer.lower()]
+        elif (filterto is not None) and (answer.lower() not in filterto):
+            offset += count
+            continue
         end = offset + count
-        answers_.append((answer, count, offset, end))
+        if answer not in answered:
+            answers_.append((answer, count, [offset], [end]))
+            answered[answer] = len(answers_) - 1
+        else:
+            _, old_count, offsets, ends = answers_[answered[answer]]
+            offsets.append(offset)
+            ends.append(end)
+            count += old_count
+            answers_[answered[answer]] = (answer, count, offsets, ends)
         offset = end
     answers = sorted(answers_, key = lambda x : x[1])
     answers = reversed(answers) if reverse else answers
-    for answer, count, offset, end in answers:
-        if (filterto is not None) and (answer.lower() not in filterto):
-            continue
-        if filterto is not None:
-            answer = filterto[answer.lower()]
+    for answer, count, offsets, ends in answers:
         print('%s‘%s’ (%i %%, %i of %i)' % (indent, answer, 100 * count / maxcount + 0.5, count, maxcount))
-        print_survey(args, [subsurvey[i][offset : end] for i in range(len(subsurvey))], indent + '  ')
+        subsubsurvey = []
+        for i in range(len(subsurvey)):
+            subsubsurvey_section = []
+            for j in range(len(offsets)):
+                subsubsurvey_section += subsurvey[i][offsets[j] : ends[j]]
+            subsubsurvey.append(subsubsurvey_section)
+        print_survey(args, subsubsurvey, indent + '  ')
 
 def xint(s):
     s = s.replace('^', '')
