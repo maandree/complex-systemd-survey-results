@@ -59,7 +59,7 @@ while (( c < columns )); do
 	while (( i < n )); do
 	    computer="${computers[$i]}"
 	    (( i++ ))
-	    echo ":: Have you running a ${computer}?" >&3
+	    echo ":: Are you running a ${computer}?" >&3
 	    echo "${answers}" | multi "${computer}" >&3
 	    echo '==================================================================' >&3
 	done
