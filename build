@@ -24,7 +24,7 @@ oses=("GNU/Linux" "GNU but with another kernel than Linux" "*BSD" "Plan 9 from B
 
 columns=$(cat systemd-survey.csv | sed 1q | tr -d -c \; | wc -c)
 c=1
-while (( c < columns )); do
+while (( c <= columns )); do
     (( c++ ))
     echo -n ':: ' >&3
     cat systemd-survey.csv | cut -d \; -f ${c} >&3
