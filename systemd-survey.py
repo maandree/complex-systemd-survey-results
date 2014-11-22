@@ -82,7 +82,7 @@ def print_survey(args, subsurvey, indent = ''):
     args = args[1:]
     subsurvey = sort_survey(subsurvey, i)
     answers = unique(subsurvey[i])
-    maxcount = sum([x[1] for x in answers])
+    maxcount = 0
     offset = 0
     answers_ = []
     answered = {}
@@ -94,6 +94,7 @@ def print_survey(args, subsurvey, indent = ''):
             offset += count
             continue
         end = offset + count
+        maxcount += count
         if answer not in answered:
             answers_.append((answer, count, [offset], [end]))
             answered[answer] = len(answers_) - 1
