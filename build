@@ -1,0 +1,70 @@
+#!/bin/bash
+
+exec 3>systemd-survey
+
+sed -i s/Beginnier/Beginner/g systemd-survey.csv
+
+question ()
+{
+    cat systemd-survey.csv | sed 1q | cut -d \; -f ${1}
+}
+
+prepare_multi ()
+{
+    cat systemd-survey.csv | cut -d \; -f ${1} | sed -e 's/$/,/' -e 's/^/,/' -e 's/, /,/g' | sed 1d
+}
+
+multi ()
+{
+    sed -e 's:^.*,'"${1}"',.*$:Yes:' -e 's/^,,$//g' | sed -e 's/^.*,.*$/No/'
+}
+
+oses=("GNU/Linux" "GNU but with another kernel than Linux" "*BSD" "Plan 9 from Bell Labs"
+      "*Solaris" "UNIX" "OS X" "Windows or ReactOS" "Haiku or BeOS" "Other UNIX-like" "Other")
+
+columns=$(cat systemd-survey.csv | sed 1q | tr -d -c \; | wc -c)
+c=1
+while (( c < columns )); do
+    (( c++ ))
+    echo -n ':: ' >&3
+    cat systemd-survey.csv | cut -d \; -f ${c} >&3
+    echo '==================================================================' >&3
+    if [ "$(question ${c})" = "Which operating systems do you use?" ]; then
+	n=${#oses[@]}
+	i=0
+	answers="$(prepare_multi ${c})"
+	while (( i < n )); do
+	    os="${oses[$i]}"
+	    (( i++ ))
+	    echo ":: Do you use ${os}?" >&3
+	    echo "${answers}" | multi "${os}" >&3
+	    echo '==================================================================' >&3
+	done
+    elif [ "$(question ${c})" = "Which operating systems have you used, including currently used?" ]; then
+	n=${#oses[@]}
+	i=0
+	answers="$(prepare_multi ${c})"
+	while (( i < n )); do
+	    os="${oses[$i]}"
+	    (( i++ ))
+	    echo ":: Have you ever used ${os}?" >&3
+	    echo "${answers}" | multi "${os}" >&3
+	    echo '==================================================================' >&3
+	done
+    elif [ "$(question ${c})" = "What kind of computers are you using?" ]; then
+	computers=(Server Desktop Portable Laptop Ultrabook Netbook Tablet PDA Other)
+	n=${#computers[@]}
+	i=0
+	answers="$(prepare_multi ${c})"
+	while (( i < n )); do
+	    computer="${computers[$i]}"
+	    (( i++ ))
+	    echo ":: Have you running a ${computer}?" >&3
+	    echo "${answers}" | multi "${computer}" >&3
+	    echo '==================================================================' >&3
+	done
+    fi
+done
+
+exec 3<&-
+
