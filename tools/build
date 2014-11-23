@@ -68,3 +68,6 @@ exec 3<&-
 
 sed -i s/Beginnier/Beginner/g "${1}"
 
+sed -i 's/Do you use socket activation/&?/' "${1}"
+sed -i 's/Do you use D-Bus activation/&?/' "${1}"
+
