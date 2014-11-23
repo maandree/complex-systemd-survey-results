@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-with open('systemd-survey', 'rb') as file:
+with open('data/results', 'rb') as file:
     data = file.read()
 data = data.decode('utf-8', 'replace').split('\n')
 

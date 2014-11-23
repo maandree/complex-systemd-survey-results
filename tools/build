@@ -1,8 +1,6 @@
 #!/bin/bash
 
-exec 3>systemd-survey
-
-sed -i s/Beginnier/Beginner/g systemd-survey.csv
+exec 3>"${1}"
 
 question ()
 {
@@ -67,4 +65,6 @@ while (( c <= columns )); do
 done
 
 exec 3<&-
+
+sed -i s/Beginnier/Beginner/g "${1}"
 
