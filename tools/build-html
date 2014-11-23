@@ -278,8 +278,27 @@ abbr = {'I have not started or graduated from high school' : 'N/A',
         'It is the only thing I have used' : 'Only'}
 
 
+def xint(s):
+    s = s.replace('^', '')
+    if '=' in s:
+        s = s[:s.find('=')]
+    return int(s) - 1
+
+questions = list(range(len(names)))
+filterto = {}
+if len(sys.argv) > 3:
+    questions = []
+    for arg in sys.argv[3:]:
+        question = xint(arg)
+        questions.append(question)
+        if '=' in arg:
+            s = arg[arg.find('=') + 1:]
+            s = [x.split('.')[0].lower() for x in s.split('::')]
+            filterto[question] = s
+
+
 output.append('<tr>')
-for i in range(len(names)):
+for i in questions:
     if colours[i] is None:
         continue
     output.append('<th><div>%s</div></th>' % names[i])
@@ -287,22 +306,30 @@ output.append('</tr>')
 
 submission_i = 0
 for submission in survey:
-    output.append('<tr>')
-    for i in range(len(submission)):
+    suboutput = []
+    suboutput.append('<tr>')
+    for i in questions:
         if colours[i] is None:
             continue
-        if submission[i] == '':
-            submission[i] = '?'
+        answer = submission[i]
+        if i in filterto:
+            if submission[i].lower() not in filterto[i]:
+                if (answer not in abbr) or abbr[submission[i]].lower() not in filterto[i]:
+                    suboutput = None
+                    break
+        if answer == '':
+            answer = '?'
             colour = grey
         else:
-            colour = colours[i][submission[i]]
+            colour = colours[i][answer]
         colour = colour[submission_i % len(colour)]
-        answer = submission[i]
         if answer in abbr:
             answer = abbr[answer]
-        output.append('<td style="background-color: #%s;">%s</td>' % (colour, answer))
-    output.append('</tr>')
-    submission_i += 1
+        suboutput.append('<td style="background-color: #%s;">%s</td>' % (colour, answer))
+    if suboutput is not None:
+        suboutput.append('</tr>')
+        submission_i += 1
+        output += suboutput
 
 output.append('</table>')
 output.append('</body>')
