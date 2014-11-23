@@ -70,4 +70,7 @@ sed -i s/Beginnier/Beginner/g "${1}"
 
 sed -i 's/Do you use socket activation/&?/' "${1}"
 sed -i 's/Do you use D-Bus activation/&?/' "${1}"
+sed -i 's/I have never use it/I have never used it/' "${1}"
+sed -i 's/perfered/perferred/' "${1}"
+sed -i 's/Depends on which computer a use/Depends on which computer I use/' "${1}"
 

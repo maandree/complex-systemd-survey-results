@@ -1,0 +1,278 @@
+#!/usr/bin/env python3
+
+
+import sys
+
+inputfile, outputfile = sys.argv[1], sys.argv[2]
+
+with open(inputfile, 'rb') as file:
+    data = file.read()
+
+data = data.decode('utf-8', 'replace').split('\n')
+
+columns = []
+column_name = None
+column_data = []
+
+for line in data:
+    if line[:3] == ':: ':
+        column_name = line[3:]
+    elif line[:10] == '==========':
+        columns.append((column_name, column_data))
+        column_data = []
+    else:
+        column_data.append(line)
+
+survey = []
+names = [name for name, _ in columns]
+
+for j in range(len(columns[0][1])):
+    data = []
+    for i in range(len(columns)):
+        data.append(columns[i][1][j])
+    survey.append(data)
+
+output = []
+
+output.append('<!DOCTYPE html>')
+output.append('<html>')
+output.append('<head>')
+output.append('<meta http-equiv="Content-Type" content="text/html;charset=utf-8">')
+output.append('<title>Complex systemd survey</title>')
+output.append('<style>')
+output.append('td, th { border: 1px solid black; cell-spacing: 0; }')
+output.append('table { border-collapse: collapse; }')
+output.append('th { height: 500px; white-space: nowrap; }')
+output.append('th div { transform: translate(0px, 245px) rotate(315deg); transform-origin: left top 0; }')
+output.append('</style>')
+output.append('</head>')
+output.append('<body>')
+output.append('<table>')
+
+alternate = False
+grey   = ['808080', 'c0c0c0'] if alternate else ['c0c0c0']
+red    = ['cd656c', 'eb5e6a'] if alternate else ['eb5e6a']
+green  = ['32a679', '0ec287'] if alternate else ['0ec287']
+yellow = ['ccad47', 'f2ca38'] if alternate else ['f2ca38']
+blue   = ['2495be', '00ace0'] if alternate else ['00ace0']
+lilac  = ['a46eb0', 'c473d1'] if alternate else ['c473d1']
+cyan   = ['00a09f', '00c3c7'] if alternate else ['00c3c7']
+orange = ['cc8959', 'f2ca38'] if alternate else ['f2ca38']
+white  = ['eeeeee', 'ffffff'] if alternate else ['ffffff']
+
+
+def gradient(*answers):
+    answers = list(answers)
+    count = len(answers)
+    red_dark,    red_bright    = (0xcd, 0x65, 0x6c), (0xeb, 0x5e, 0x6a)
+    green_dark,  green_bright  = (0x32, 0xa6, 0x79), (0x0e, 0xc2, 0x87)
+    yellow_dark, yellow_bright = (0xcc, 0xad, 0x47), (0xf2, 0xca, 0x38)
+    mapping = {}
+    for i in range(count):
+        p = i / (count - 1)
+        if p < 0.5:
+            low_dark, low_bright = red_dark, red_bright
+            high_dark, high_bright = yellow_dark, yellow_bright
+            p = p * 2
+        else:
+            low_dark, low_bright = yellow_dark, yellow_bright
+            high_dark, high_bright = green_dark, green_bright
+            p = (p - 0.5) * 2
+        dark   = [(1 - p) * low_dark[j]   + p * high_dark[j]   for j in range(3)]
+        bright = [(1 - p) * low_bright[j] + p * high_bright[j] for j in range(3)]
+        dark   = '%02x%02x%02x' % (int(  dark[0]), int(  dark[1]), int(  dark[2]))
+        bright = '%02x%02x%02x' % (int(bright[0]), int(bright[1]), int(bright[2]))
+        mapping[answers[i]] = [dark, bright] if alternate else [bright]
+    return mapping
+
+
+class Everwhite:
+    def __getitem__(self, _):
+        return white
+everwhite = Everwhite()
+
+positive = {'Yes':green, 'Sometimes':yellow, 'No':red, 'What is that?':blue,
+            'I have not graduated high school':yellow,
+            'I have not started or graduated from high school':yellow,
+            'Depends on which computer I use':yellow,
+            'In favour':green, 'Against':red, 'Neither':yellow,
+            'It is the only thing I have used':blue,
+            'A little':yellow, 'Don\'t know':blue, 'I\'m not a developer':yellow}
+
+negative = {'Yes':red, 'A bit':yellow, 'No':green, 'Don\'t know':blue,
+            'Yes, but I do not mind that':yellow,
+            'Yes, but only by its adoption by that software':yellow}
+
+developer = {'Yes, back-end (exclusively or preferably)':green,
+             'Yes, full-stack':yellow,
+             'Yes, front-end (exclusively or preferably)':orange,
+             'No':red}
+
+education = gradient('None', 'Primary school', 'High school', 'College',
+                     '3 years university or university college, or shorter',
+                     '4 years university or university college, or longer',
+                     'Postgraduate', 'Docent')
+
+colours = [ positive, # What is your position on systemd?
+            positive, # Have you tried systemd?
+            negative, # Do you feel that systemd is breaking the UNIX philosophy?
+            negative, # Do you feel that systemd is bloated?
+            positive, # Do you feel that systemd is modular?
+            negative, # Do you feel that systemd is monolithic?
+            negative, # Do you feel that systemd is eating up other project?
+            # What do you think about http://0pointer.de/blog/projects/why.html?
+            {'Helpful':cyan, 'Legit':green, 'Incorrect':yellow,
+             'Biased':orange, 'FUD':red, 'I have no opinion':blue},
+            negative, # Have you been frustrated by bugs in systemd?
+            negative, # Do you feel obligated to use systemd?
+            negative, # Are you afraid systemd will destroy the GNU/Linux ecosystem?
+            negative, # Is systemd stopping you from using some other software?
+            positive, # Are you vocal about systemd?
+            # What is your position on Red Hat?
+            {'I love them':green, 'Neutral':yellow, 'I hate them':red, 'Neither':blue,
+             'Irrelevant, systemd is not a Red Hat project':cyan},
+            positive, # What is your position on Avahi?
+            positive, # What is your position on PulseAudio?
+            positive, # What is your position on D-Bus?
+            positive, # What is your position on kdbus?
+            positive, # What is your position on Docker?
+            positive, # Do you use containerisation?
+            positive, # Do you use socket activation?
+            positive, # Do you use D-Bus activation?
+            positive, # Do you use cron?
+            positive, # Do you use at?
+            positive, # Do you encrypt your /?
+            positive, # Do you encrypt any other partition, besides swap?
+            {'Yes, encrypted':green, 'Yes':yellow, 'No':red}, # Do you use swap?
+            positive, # Do you use a graphical boot?
+            # What do you call GNU/Linux?
+            {'GNU/Linux':yellow, 'GNU+Linux':yellow, 'Lignux':yellow, 'GNU':red, 'Linux':green,
+             'By the name of the distribution I use':cyan, 'Other':lilac,
+             'I don\'t know the difference between GNU and Linux':blue},
+            # What is your position on smartphones?
+            {'In favour':green, 'Against':orange, 'Against mobile phones in general':red, 'Neither':yellow},
+            # Do you use an FSF endorsed distro?
+            {'Yes':green, 'Yes, but not exclusively':yellow, 'No, or yes but not because it is free':red},
+            # What is your position on free software versus open source?
+            {'I\'m for free software':cyan, 'I\'m for open source':lilac,
+             'Neither':yellow, 'What is the difference?':blue},
+            positive, # Are you a distro developer?
+            developer, # Are you a web developer?
+            developer, # Are you a non-web developer?
+            positive, # Are you a system administrator?
+            positive, # Are you a gamer?
+            positive, # Do you like the Web?
+            positive, # Do you like Gopher?
+            positive, # Do you like new and shiny?
+            # Are you a fan of suckless.org software?
+            {'Yes':green, 'Some of it':yellow, 'No':orange, 'No, it is stupid':red, 'What is that?':blue},
+            {'Yes':green, 'No':yellow, 'No, I hate it':red, 'What is that?':blue}, # Are you a GNU Hurd fan?
+            everwhite, # What is the most important about a distro, besides freedom?
+            everwhite, # What is the second most important about a distro, besides freedom?
+            everwhite, # What is the least important about a distro, besides freedom?
+            positive, # Do you prefer word processors over text editors?
+            # Do you prefer LaTeX or LibreOffice?
+            {'LaTeX, or similar':green, 'LibreOffice, or similar':red, 'What is LaTeX?':blue},
+            {'Emacs-family':lilac, 'Vi-family':cyan, 'Other':red}, # What text editor do you use?
+            positive, # Do you use an integrated development environment?
+            # What type of window manager do you prefer?
+            {'Tiling, or dynamic':green, 'Stacking':red, 'What does all of this mean?':blue},
+            # What display server do you want to be the future?
+            {'X':red, 'Wayland':green, 'Mir':yellow, 'Other':orange, 'Neither':blue},
+            None, # Which operating systems do you use?
+            positive, # Do you use GNU/Linux?
+            positive, # Do you use GNU but with another kernel than Linux?
+            positive, # Do you use *BSD?
+            positive, # Do you use Plan 9 from Bell Labs?
+            positive, # Do you use *Solaris?
+            positive, # Do you use UNIX?
+            positive, # Do you use OS X?
+            positive, # Do you use Windows or ReactOS?
+            positive, # Do you use Haiku or BeOS?
+            positive, # Do you use Other UNIX-like?
+            positive, # Do you use Other?
+            # Which is your perfered operating system?
+            {'GNU/Linux':green, 'GNU but with another kernel than Linux':yellow, '*BSD':yellow,
+             'Plan 9 from Bell Labs':yellow, '*Solaris':yellow, 'UNIX':yellow, 'OS X':orange,
+             'Windows or ReactOS':red, 'Haiku or BeOS':red, 'Other UNIX-like':yellow, 'Other':red,},
+            None, # Which operating systems have you used, including currently used?
+            positive, # Have you ever used GNU/Linux?
+            positive, # Have you ever used GNU but with another kernel than Linux?
+            positive, # Have you ever used *BSD?
+            positive, # Have you ever used Plan 9 from Bell Labs?
+            positive, # Have you ever used *Solaris?
+            positive, # Have you ever used UNIX?
+            positive, # Have you ever used OS X?
+            positive, # Have you ever used Windows or ReactOS?
+            positive, # Have you ever used Haiku or BeOS?
+            positive, # Have you ever used Other UNIX-like?
+            positive, # Have you ever used Other?
+            # How often do you use GNU/Linux at home?
+            gradient('0 %', '0–20 %', '20–40 %', '40–60 %', '60–80 %', '80–100 %', '100 %'),
+            {'Beginner\'s':green, 'Advanced':red}, # What type of distro do you perfer?
+            # What command line shell do you use?
+            {'bash':yellow, 'fish':red, 'zsh':green, 'Other':lilac,
+             'I don\'t know or have never user the terminal':blue},
+            # What is your terminal usage?
+            gradient('I have never used it', 'Rare', 'Occasional', 'Drop-down terminal',
+                     'I live in the terminal', 'I live in the TTY'),
+            positive, # Do you use the TTY?
+            positive, # Do you use a login manager?
+            None, # What kind of computers are you using?
+            positive, # Are you running a Server?
+            positive, # Are you running a Desktop?
+            positive, # Are you running a Portable?
+            positive, # Are you running a Laptop?
+            positive, # Are you running a Ultrabook?
+            positive, # Are you running a Netbook?
+            positive, # Are you running a Tablet?
+            positive, # Are you running a PDA?
+            positive, # Are you running a Other?
+            # When did you start using GNU, or Linux?
+            gradient('2014', '2012–2013', '2008–2011', '2004–2007', '2000–2003',
+                     '1996–1999', '1992–1995', '1988–1991', '1984–1987', '1983'),
+            # How old are you?
+            gradient('0–9', '10–13', '14–17', '18–21', '22–25', '26–29',
+                     '30–39', '40–49', '50–59', '60–69', '70+'),
+            education, # What is the highest education level you have completed?
+            positive, # Was you highest education level degree in computer science?
+            education, # What education level are you currently engaged in?
+            positive, # Are you currently engaged in getting a degree in computer science?
+            {'Female':lilac, 'Male':cyan, 'Neither':yellow}, # What gender do you identify as?
+            positive, # Do you watch the Linux Action Show?
+            positive, # Do you watch Linux Unplugged?
+            positive, # Do you watch BSD Now?
+          ]
+
+
+output.append('<tr>')
+for i in range(len(names)):
+    if colours[i] is None:
+        continue
+    output.append('<th><div>%s</div></th>' % names[i])
+output.append('</tr>')
+
+submission_i = 0
+for submission in survey:
+    output.append('<tr>')
+    for i in range(len(submission)):
+        if colours[i] is None:
+            continue
+        if submission[i] == '':
+            submission[i] = '?'
+            colour = grey
+        else:
+            colour = colours[i][submission[i]]
+        colour = colour[submission_i % len(colour)]
+        output.append('<td style="background-color: #%s;">%s</td>' % (colour, submission[i]))
+    output.append('</tr>')
+    submission_i += 1
+
+output.append('</table>')
+output.append('</body>')
+output.append('</html>')
+
+output = '\n'.join(output).encode('utf-8')
+with open(outputfile, 'wb') as file:
+    file.write(output)
+
