@@ -40,9 +40,12 @@ output.append('<head>')
 output.append('<meta http-equiv="Content-Type" content="text/html;charset=utf-8">')
 output.append('<title>Complex systemd survey</title>')
 output.append('<style>')
-output.append('td, th { border: 1px solid black; cell-spacing: 0; }')
-output.append('table { border-collapse: collapse; }')
-output.append('th { height: 500px; white-space: nowrap; }')
+output.append('td, th {')
+output.append('border: 1px solid black; cell-spacing: 0; overflow: hidden;')
+output.append('white-space: nowrap; padding: 2px;')
+output.append('}')
+output.append('table { border-collapse: collapse; table-layout:fixed; }')
+output.append('th { height: 500px; }')
 output.append('th div { transform: translate(0px, 245px) rotate(315deg); transform-origin: left top 0; }')
 output.append('</style>')
 output.append('</head>')
@@ -244,6 +247,33 @@ colours = [ positive, # What is your position on systemd?
             positive, # Do you watch BSD Now?
           ]
 
+abbr = {'I have not started or graduated from high school' : 'N/A',
+        '4 years university or university college, or longer' : '4+ years university',
+        '3 years university or university college, or shorter' : '3− years university',
+        'I have not graduated high school' : 'N/A',
+        'Depends on which computer I use' : 'Depends',
+        'What does all of this mean?' : 'What?',
+        'Tiling, or dynamic' : 'Tiling', 'I\'m not a developer' : 'N/A',
+        'Vi-family' : 'Vi', 'Emacs-family' : 'Emacs',
+        'LibreOffice, or similar' : 'LibreOffice', 'LaTeX, or similar' : 'LaTeX', 'What is LaTeX?' : 'What?',
+        'What is that?' : 'What?',
+        'No, I hate it' : 'Hate it',
+        'No, it is stupid' : 'It\'s stupid',
+        'Yes, back-end (exclusively or preferably)' : 'Back-end',
+        'Yes, front-end (exclusively or preferably)' : 'Front-end',
+        'Yes, full-stack' : 'Full-stack',
+        'I\'m for free software' : 'Free', 'I\'m for open source' : 'Open', 'What is the difference?' : 'What?',
+        'No, or yes but not because it is free' : 'No', 'Yes, but not exclusively' : 'Partially',
+        'Against mobile phones in general' : 'Against mobiles',
+        'By the name of the distribution I use' : 'Distro',
+        'Yes, encrypted' : 'Encrypted',
+        'Irrelevant, systemd is not a Red Hat project' : 'Irrelevant',
+        'I hate them' : 'Hate them', 'I love them' : 'Love them',
+        'Yes, but only by its adoption by that software' : 'Adoption',
+        'I have no opinion' : 'No opinion',
+        'Yes, but I do not mind that' : 'Don\'t mind',
+        'It is the only thing I have used' : 'Only'}
+
 
 output.append('<tr>')
 for i in range(len(names)):
@@ -264,7 +294,10 @@ for submission in survey:
         else:
             colour = colours[i][submission[i]]
         colour = colour[submission_i % len(colour)]
-        output.append('<td style="background-color: #%s;">%s</td>' % (colour, submission[i]))
+        answer = submission[i]
+        if answer in abbr:
+            answer = abbr[answer]
+        output.append('<td style="background-color: #%s;">%s</td>' % (colour, answer))
     output.append('</tr>')
     submission_i += 1
 
