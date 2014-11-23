@@ -334,6 +334,7 @@ for submission in survey:
 output.append('</table>')
 output.append('</body>')
 output.append('</html>')
+output.append('')
 
 output = '\n'.join(output).encode('utf-8')
 with open(outputfile, 'wb') as file:

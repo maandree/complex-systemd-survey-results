@@ -1,0 +1,8 @@
+#!/bin/sh
+
+if [ $# = 0 ]; then
+   ./correlate
+else
+    tools/build-html data/results /dev/stdout "$@"
+fi
+
