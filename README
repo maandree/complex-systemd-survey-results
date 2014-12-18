@@ -63,7 +63,6 @@ to be certain of any drawn conclusions.
 ./correlate 1 74
 ./correlate 1 75
 ./correlate 1 76
-./correlate 1 77
 ./correlate 1 79
 ./correlate 1 80
 ./correlate 1 81
@@ -76,7 +75,13 @@ to be certain of any drawn conclusions.
 ./correlate 1 90
 ./correlate 1 92
 ./correlate 1 93
-./correlate 1 94
+
+#   1 94(approximate average)
+#   
+#   In favour:  29,382198953, counting 70+ as 75
+#   Against:    30,436170213
+#   Neither:    28,256880734, counting 70+ as 75
+
 ./correlate 1 95
 ./correlate 1 99
 ./correlate 1 100
@@ -115,7 +120,12 @@ to be certain of any drawn conclusions.
 ./correlate 2='It is the only thing I have used::Yes:Yes/No::No:Yes/No' 68
 ./correlate 2 74
 ./correlate 2=Yes:Yes/No::No:Yes/No::'It is the only thing I have used' 76
-./correlate 2 77
+
+#   2 77(approximate average)
+#   
+#   Yes:  83,255813953 %
+#   No:   68,76744186 %
+
 ./correlate 2='Yes:Yes/Only::No::It is the only thing I have used:Yes/Only' 78
 ./correlate 2 80
 ./correlate 2 88
@@ -189,8 +199,74 @@ to be certain of any drawn conclusions.
 #   3 94(approximate average)
 #   
 #   Yes:         31,3(27)
-#   A bit:       29,(1), counting 70+ as 75
+#   A bit:       29,408730158, counting 70+ as 75
 #   No:          29,4(279)
-#   Don't know:  26,3(18), counting 70+ as 75
+#   Don't know:  27,170(45), counting 70+ as 75
 
 ./correlate 3='No:No/A bit::A bit:No/A bit::Yes' 102
+./correlate 4 1
+./correlate 4 2
+./correlate 4 3
+./correlate 4 5
+./correlate 4 6
+./correlate 4 7
+./correlate 4 8
+./correlate 4 9
+./correlate 4 10
+./correlate 4 11
+./correlate 4 12
+./correlate 4 15
+./correlate 4 16
+./correlate 4 17
+./correlate 4 18
+./correlate 4 19
+./correlate 4 21
+./correlate 4 22
+./correlate 4 23
+./correlate 4 25
+./correlate 4 28
+./correlate 4 30
+./correlate 4 31
+./correlate 4 33
+./correlate 4 35
+./correlate 4 36
+./correlate 4 38
+./correlate 4 39
+./correlate 4 40
+./correlate 4 41
+./correlate 4 42
+./correlate 4 45
+./correlate 4 48
+./correlate 4 49
+./correlate 4 51
+./correlate 4 55
+./correlate 4 56
+./correlate 4 57
+./correlate 4 62
+./correlate 4 64
+./correlate 4 67
+./correlate 4 68
+./correlate 4 69
+./correlate 4 70
+./correlate 4 71
+./correlate 4 74
+./correlate 4 75
+./correlate 4 79
+./correlate 4 80
+./correlate 4 82
+./correlate 4 84
+./correlate 4 85
+./correlate 4 89
+./correlate 4 91
+./correlate 4 92
+
+#   4 93(approximate average)
+#   
+#   Yes:         2002,291366906
+#   No:          2003,5859375
+#   Don't know:  2005,023809524
+
+./correlate 4 99
+./correlate 4 100
+./correlate 4 101
+./correlate 4 102
