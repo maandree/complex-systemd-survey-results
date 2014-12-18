@@ -270,3 +270,69 @@ to be certain of any drawn conclusions.
 ./correlate 4 100
 ./correlate 4 101
 ./correlate 4 102
+./correlate 5 1
+./correlate 5 2
+./correlate 5 3
+./correlate 5 4
+./correlate 5 6
+./correlate 5 7
+./correlate 5 8
+./correlate 5 9
+./correlate 5 10
+./correlate 5 11
+./correlate 5 12
+./correlate 5 14
+./correlate 5 15
+./correlate 5 16
+./correlate 5 17
+./correlate 5 18
+./correlate 5 19
+./correlate 5 23
+./correlate 5 24
+./correlate 5 25
+./correlate 5 28
+./correlate 5 30
+./correlate 5 31
+./correlate 5 35
+./correlate 5 38
+./correlate 5 39
+./correlate 5 40
+./correlate 5 41
+./correlate 5 45
+./correlate 5 48
+./correlate 5 49
+./correlate 5 50
+./correlate 5 51
+./correlate 5 55
+./correlate 5 59
+./correlate 5 60
+./correlate 5 64
+./correlate 5 67
+./correlate 5 69
+
+#   5 77(approximate average)
+#   
+#   Yes:          82,642487047 %
+#   No:           85,714285714 %
+#   Don't know:   79,680851064 %
+
+./correlate 5 78
+./correlate 5 79
+./correlate 5 80
+./correlate 5 82
+./correlate 5 91
+
+#   5 93(approximate average)
+#   
+#   Yes:         2003,093264249
+#   No:          2002,819047619
+#   Don't know:  2004,718085106
+
+#   5 94(approximate average)
+#   
+#   Yes:         29,968911917, counting 70+ as 75
+#   No:          30,2
+#   Don't know:  28,994623656, counting 70+ as 75
+
+./correlate 5 100
+./correlate 5 102
