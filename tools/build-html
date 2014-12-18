@@ -248,6 +248,7 @@ colours = [ positive, # What is your position on systemd?
             positive, # Do you watch the Linux Action Show?
             positive, # Do you watch Linux Unplugged?
             positive, # Do you watch BSD Now?
+            everwhite, # Any comments?
           ]
 
 abbr = {'I have not started or graduated from high school' : 'N/A',
@@ -317,11 +318,16 @@ for submission in survey:
                 if (answer not in abbr) or abbr[submission[i]].lower() not in filterto[i]:
                     suboutput = None
                     break
-        if answer == '':
+        if i == 102:
+            colour = white if answer == '' else blue
+        elif answer == '':
             answer = '?'
             colour = grey
         else:
-            colour = colours[i][answer]
+            try:
+                colour = colours[i][answer]
+            except:
+                colour = white
         colour = colour[submission_i % len(colour)]
         if answer in abbr:
             answer = abbr[answer]
