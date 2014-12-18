@@ -336,3 +336,44 @@ to be certain of any drawn conclusions.
 
 ./correlate 5 100
 ./correlate 5 102
+./correlate 6 1
+./correlate 6 2
+./correlate 6 4
+./correlate 6 5
+./correlate 6 7
+./correlate 6 8
+./correlate 6 10
+./correlate 6 11
+./correlate 6 12
+./correlate 6 14
+./correlate 6 15
+./correlate 6 16
+./correlate 6 17
+./correlate 6 18
+./correlate 6 19
+./correlate 6 21
+./correlate 6 23
+./correlate 6 31
+./correlate 6 32
+./correlate 6 35
+./correlate 6 39
+./correlate 6 41
+./correlate 6 42
+./correlate 6 48
+./correlate 6 50
+./correlate 6 51
+./correlate 6 55
+./correlate 6 56
+./correlate 6 61
+./correlate 6 63
+./correlate 6 82
+./correlate 6 87
+
+#   6 93(approximate average)
+#   
+#   Yes:         2002,834482759
+#   No:          2003,129251701
+#   Don't know:  2004,584158416
+
+./correlate 6 99
+./correlate 6 102
