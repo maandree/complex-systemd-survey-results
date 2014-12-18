@@ -9,3 +9,188 @@ the answers can be rather biased and that
 the number of submissions are way too few
 to be certain of any drawn conclusions.
 
+
+=== Correlations ===
+
+./correlate 1 3
+./correlate 1 4
+./correlate 1 5
+./correlate 1 6
+./correlate 1 7
+./correlate 1 8
+./correlate 1 9
+./correlate 1 10
+./correlate 1 11
+./correlate 1 12
+./correlate 1 15
+./correlate 1 16
+./correlate 1 17
+./correlate 1 18
+./correlate 1 19
+./correlate 1 21
+./correlate 1 23
+./correlate 1 24
+./correlate 1 25
+./correlate 1 26
+./correlate 1 27
+./correlate 1 28
+./correlate 1 30
+./correlate 1 31
+./correlate 1 39
+./correlate 1 40
+./correlate 1 41
+./correlate 1 42
+./correlate 1 45
+./correlate 1 47
+./correlate 1 48
+./correlate 1 49
+./correlate 1 50
+./correlate 1 51
+./correlate 1 55
+./correlate 1 56
+./correlate 1 57
+./correlate 1 58
+./correlate 1 59
+./correlate 1 60
+./correlate 1 63
+./correlate 1 64
+./correlate 1 67
+./correlate 1 68
+./correlate 1 69
+./correlate 1 70
+./correlate 1 71
+./correlate 1 72
+./correlate 1 74
+./correlate 1 75
+./correlate 1 76
+./correlate 1 77
+./correlate 1 79
+./correlate 1 80
+./correlate 1 81
+./correlate 1 82
+./correlate 1 84
+./correlate 1 85
+./correlate 1 86
+./correlate 1 88
+./correlate 1 89
+./correlate 1 90
+./correlate 1 92
+./correlate 1 93
+./correlate 1 94
+./correlate 1 95
+./correlate 1 99
+./correlate 1 100
+./correlate 1 101
+./correlate 1 102
+./correlate 2 1
+./correlate 2 3
+./correlate 2 4
+./correlate 2 5
+./correlate 2 6
+./correlate 2 7
+./correlate 2 8
+./correlate 2 10
+./correlate 2 11
+./correlate 2 12
+./correlate 2 13
+./correlate 2 14
+./correlate 2 18
+./correlate 2 20
+./correlate 2 21
+./correlate 2 22
+./correlate 2 31
+./correlate 2 32
+./correlate 2 33
+./correlate 2 35
+./correlate 2=Yes:Yes/No::No:Yes/No::'It is the only thing I have used' 36
+./correlate 2 38
+./correlate 2 39
+./correlate 2 43
+./correlate 2='Yes::No:No/Only::It is the only thing I have used:No/Only' 47
+./correlate 2 48
+./correlate 2 49
+./correlate 2 51
+./correlate 2 59
+./correlate 2 67
+./correlate 2='It is the only thing I have used::Yes:Yes/No::No:Yes/No' 68
+./correlate 2 74
+./correlate 2=Yes:Yes/No::No:Yes/No::'It is the only thing I have used' 76
+./correlate 2 77
+./correlate 2='Yes:Yes/Only::No::It is the only thing I have used:Yes/Only' 78
+./correlate 2 80
+./correlate 2 88
+./correlate 2 90
+./correlate 2 95
+./correlate 2 100
+./correlate 2 101
+./correlate 2 102
+./correlate 3 1
+./correlate 3 2
+./correlate 3 4
+./correlate 3 6
+./correlate 3 7
+./correlate 3 8
+./correlate 3 9
+./correlate 3 10
+./correlate 3 11
+./correlate 3 12
+./correlate 3 15
+./correlate 3 16
+./correlate 3 17
+./correlate 3 18
+./correlate 3 21=Yes::No
+./correlate 3 22
+./correlate 3 23
+./correlate 3 26
+./correlate 3 28
+./correlate 3 29
+./correlate 3 31
+./correlate 3 33
+./correlate 3 36
+./correlate 3 38
+./correlate 3 39
+./correlate 3 40
+./correlate 3 41
+./correlate 3 42
+./correlate 3 45
+./correlate 3 48
+./correlate 3 49
+./correlate 3 50
+./correlate 3 51
+./correlate 3 55
+./correlate 3 56
+./correlate 3 57
+./correlate 3 58
+./correlate 3 62
+./correlate 3 64
+./correlate 3 67
+./correlate 3 68
+./correlate 3='No:No/A bit::A bit:No/A bit::Yes' 69
+./correlate 3 70
+./correlate 3 71
+./correlate 3='No:No/A bit::A bit:No/A bit::Yes' 74
+./correlate 3 75
+./correlate 3 79
+./correlate 3 80
+./correlate 3='No:No/A bit::A bit:No/A bit::Yes' 81
+./correlate 3 82
+./correlate 3 85
+./correlate 3='No:No/A bit::A bit:No/A bit::Yes' 89
+./correlate 3 92
+./correlate 3='No:No/A bit::A bit:No/A bit::Yes' 93='1984–1987:1984–1995::1988–1991:1984–1995::1992–1995:1984–1995::1996–1999::2000–2003::2004–2007::2008–2011:2008–2014::2012–2013:2008–2014::2014:2008–2014'
+
+#   3 93(approximate average)
+#   
+#   Yes:         2002,0(09)
+#   A bit:       2003,586614173
+#   No:          2003,3(378)
+#   Don't know:  2005,84(09)
+
+#   3 94(approximate average)
+#   
+#   Yes:         31,3(27)
+#   A bit:       29,(1), counting 70+ as 75
+#   No:          29,4(279)
+#   Don't know:  26,3(18), counting 70+ as 75
+
+./correlate 3='No:No/A bit::A bit:No/A bit::Yes' 102
