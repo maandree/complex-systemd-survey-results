@@ -74,3 +74,49 @@ sed -i 's/I have never use it/I have never used it/' "${1}"
 sed -i 's/perfered/perferred/' "${1}"
 sed -i 's/Depends on which computer a use/Depends on which computer I use/' "${1}"
 
+
+
+
+## Adjustment of answers. ##
+
+# What do you call GNU/Linux?
+sed -i 's:^depends\.$::' "${1}"
+# There is one answer like this. I think
+# this is an misunderstanding of the question.
+# What you call GNU/Linux can depend on how
+# you are talking to or what others in the
+# conversion is calling it, or what part
+# of the GNU/Linux system you are talking about.
+# Removing this answer should not disturb the
+# analysis too much either way.
+
+# What is the second most important about a distro, besides freedom?
+sed -i 's:^Interface discoverablility$:Other:' "${1}"
+# There is one answer like this, so I think it
+# could be grouped with Other.
+sed -i 's:^Your question is too biased to answer$::' "${1}"
+# This the not an answer to the question.
+
+# What text editor do you use?
+sed -i 's:^Notepad++$:Other:' "${1}"
+sed -i 's:^gedit$:Other:' "${1}"
+sed -i 's:^Gedit Geany MCEdit$:Other:' "${1}"
+# Both of these answers only occur once, I think
+# it is best to group the together with Other.
+# Additionally the latter is a multiple answers,
+# I was really liking for one preferred, however
+# all qualify as Other.
+sed -i 's:^[Gg]eany$:Other:' "${1}"
+# There are two answers like this.
+sed -i 's:^nano$:Other:' "${1}"
+# There are three answers like this.
+
+# What display server do you want to be the future?
+sed -i 's:^n/a$:Neither:' "${1}"
+sed -i 's:^not qualified, wayland looks cool$:Neither:' "${1}"
+# Both of these answers are the same thing as Neither.
+
+# What command line shell do you use?
+sed -i 's:^xfce4-terminal cool-retro-term$::' "${1}"
+# This is an answer to another question (that was not asked).
+
