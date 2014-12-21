@@ -89,4 +89,5 @@ but these are the strong corrections.
 # Note: It is appearent that not everyone understood that ‘Yes’ on the question
 #       ‘Do you use an FSF endorsed distro?’ meant that you do not use non-free
 #       operating systems whatsoever.
+./correlate 32 {2,8,29,31,38,41-42,47-48,51,58-59,64,73,77~,79-82,91-92,98}
 
