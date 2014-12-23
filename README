@@ -187,4 +187,16 @@ but these are the strong corrections.
 ## TODO  ./correlate 97
 ./correlate 98 {7,12,14-16,19-20,22,24,27,30,38,41-45,49,51,53,57-58,62,64,70-71,73-75,77~,79-81,85,89,91}
 ./correlate 98 {93~,94~,96-97,99}
+./correlate 99 {12,14,19-20,25,27,38-39,41,46-48,51,67,76,81-82,90,94~,97,102}
+# Note: Something binary or gradual is required to make a correlation, not something ternary.
+#       Therefore in this set of correlations (99) it is assumed that ‘Neither’ falls somewhere
+#       between ‘Male’ and ‘Female’.
+./correlate 100 {1,4,6-8,10-12,15-20,24,27-28,33,35-36,38-40,43,45,47-50,61,64,69-71,73,75-76,77~,78-80,82}
+./correlate 100 {84,87-88,93~,94~,95,97,101-102}
+./correlate 100 41='What is that?::Some of it:Yes::Yes::No, it is stupid:No::No'
+./correlate 100 51='Wayland:Wayland/Mir::Mir:Wayland/Mir::X:X/Other::Other:X/Other::Neither'
+./correlate 101 {4,6-7,10-12,15-19,24,26-27,29,33-36,39,41,43-45,48,51,68-71,75,77~,78-82,84,86-87,89}
+./correlate 101 {93~,95,100,102}
+./correlate 102 {2,14,19,27,32,38,55,58,63,68,72,74,76,78-79,85,88-89,94~,95,100-101}
+## TODO  ./correlate {100-102} # ‘No’ as the middle
 
