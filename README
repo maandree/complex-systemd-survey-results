@@ -182,9 +182,9 @@ but these are the strong correlations.
 #       claim to have completed high school or an higher education than that.
 #       (However, that would only be four submissions.)
 ## TODO  ./correlate 97
-./correlate 98 {7,12,14-16,19-20,22,24,27,30,38,41-45,49,51,53,57-58,62,64,70-71,73-75,77~,79-81,85,89,91}
+./correlate 98 {7,12,14-16,19-20,22,24,27,30,38,41-45,51,53,57-58,62,64,70-71,73-75,77~,79,81,85,89,91}
 ./correlate 98 {93~,94~,96-97,99}
-./correlate 99 {12,14,19-20,25,27,38-39,41,46-48,51,67,76,81-82,90,94~,97,102}
+./correlate 99 {12,14,19-20,27,41,46,48,51,67,76,81-82,94~,97,102}
 # Note: Something binary or gradual is required to make a correlation, not something ternary.
 #       Therefore in this set of correlations (99) it is assumed that ‘Neither’ falls somewhere
 #       between ‘Male’ and ‘Female’.
