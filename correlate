@@ -112,7 +112,7 @@ def print_survey(args, subsurvey, indent = ''):
         approximate_average, percents, has_70plus, included_count = 0, False, False, 0
         for answer, count, offsets, ends in answers:
             answer = answer.lower()
-            if answer in ('', 'don\'t know'):
+            if answer in ('', 'don\'t know', 'what is that?', 'neither'):
                 continue
             if ' %' in answer:
                 percents, answer = True, answer[:-2]
