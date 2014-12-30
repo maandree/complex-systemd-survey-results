@@ -111,11 +111,18 @@ def print_survey(args, subsurvey, indent = ''):
     if average:
         approximate_average, percents, has_70plus, included_count = 0, False, False, 0
         for answer, count, offsets, ends in answers:
-            if answer == '':
+            answer = answer.lower()
+            if answer in ('', 'don\'t know'):
                 continue
             if ' %' in answer:
                 percents, answer = True, answer[:-2]
-            if answer == '70+':
+            if answer == 'yes':
+                subaverage = 1
+            elif answer in ('a bit', 'a little', 'sometimes'):
+                subaverage = 0.5
+            elif answer == 'no':
+                subaverage = 0
+            elif answer == '70+':
                 subaverage, has_70plus = 75, True
             else:
                 subaverage = [int(x) for x in answer.split('–')]
@@ -125,7 +132,8 @@ def print_survey(args, subsurvey, indent = ''):
         if included_count == 0:
             return
         approximate_average /= included_count
-        answer = str(approximate_average).replace('.', ',') + (' %' if percents else '')
+        answer = str(approximate_average)#.replace('.', ',')
+        answer += ' %' if percents else ''
         print('%s%s%s' % (indent, answer, ', counting 70+ as 75' if has_70plus else ''))
         return
     for answer, count, offsets, ends in answers:

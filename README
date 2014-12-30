@@ -51,9 +51,8 @@ but these are the strong correlations.
 ## TODO  ./correlate 44
 ## TODO  ./correlate 45
 ## TODO  ./correlate 51
-## TODO  ./correlate 64
-77='100 %::80–100 %:60–100 %::60–80 %:60–100 %::''40–60 %:0–60 %::20–40 %:0–60 %::0–20 %:0–60 %::0 %:0–60 %'
-## TODO  ./correlate 79
+
+# 77='100 %::80–100 %:60–100 %::60–80 %:60–100 %::''40–60 %:0–60 %::20–40 %:0–60 %::0–20 %:0–60 %::0 %:0–60 %'
 
 # Note: A whopping 36,(36) % of those that claim not to have graduated high school
 #       claim to have completed high school or an higher education than that.
