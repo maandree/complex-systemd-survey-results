@@ -117,7 +117,9 @@ questions = [ (~0, '') # What is your position on systemd?
             , (113, '') # Do you watch BSD Now?
             ]
 
-order = list(map(lambda x : ~x if x < 0 else x, [q[0] for q in questions]))
+abs_ = lambda x : (~x if x < 0 else x)
+
+order = list(map(lambda q : q[0], sorted(list(enumerate(questions)), key = lambda q : abs_(q[1][0]))))
 
 negmap = {' ':' ', '?':'?', 'c':'c', 'n':'n', 'x':'x',
           'r':'g', 'o':'l', 'y':'y', 'l':'o', 'g':'r', 't':'p', 'b':'b', 'p':'t'}
@@ -128,6 +130,9 @@ binegmap = {' ':' ', '?':'?', 'c':'c', 'n':'n', 'x':'x',
 with open('correlations.csv', 'rb') as file:
     data = file.read().decode('utf-8', 'strict').split('\n')
 data = [[(' ' if cell == '' else cell) for cell in line.split(';')] for line in data if not line == '']
+
+questions_ = questions[:]
+questions.sort(key = lambda x : abs_(x[0]))
 
 for i in range(len(data)):
     def f(cell):
@@ -164,14 +169,16 @@ colours = { ' ' : '8;5;%i' % (16 + 5 * (6 * 6 + 7))
 
 colour = lambda u, l : '\033[3%s;4%sm▀\033[00m' % (colours[u], colours[l])
 
-invorder = list(map(lambda x : x[0], sorted(list(enumerate(order)), key = lambda x : x[1])))
+order = [abs_(q[0]) for q in questions_]
 
-print(''.join([str((i // 10) % 10) for i in invorder]))
-print(''.join([str(i % 10) for i in invorder]))
+print(''.join(str((i // 100) % 10) for i in order))
+print(''.join(str((i // 10) % 10) for i in order))
+print(''.join(str((i // 1) % 10) for i in order))
 
 for upper, lower in data:
     print(''.join(colour(u, l) for u, l in zip(upper, lower)))
 
-print(''.join([str(i % 10) for i in invorder]))
-print(''.join([str((i // 10) % 10) for i in invorder]))
+print(''.join(str((i // 1) % 10) for i in order))
+print(''.join(str((i // 10) % 10) for i in order))
+print(''.join(str((i // 100) % 10) for i in order))
 
