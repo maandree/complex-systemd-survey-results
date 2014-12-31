@@ -112,15 +112,15 @@ def print_survey(args, subsurvey, indent = ''):
         approximate_average, percents, has_70plus, included_count = 0, False, False, 0
         for answer, count, offsets, ends in answers:
             answer, answer_ = answer.lower(), answer
-            if ('?' in answer) or (answer_[:1] == 'I') or (answer in ('', 'don\'t know', 'neither')):
+            if ('?' in answer) or ((answer_[:1] == 'I') and not (answer[:2] == 'in')) or (answer in ('', 'don\'t know', 'neither', 'neutral')):
                 continue
             if ' %' in answer:
                 percents, answer = True, answer[:-2]
-            if answer in ('yes', 'i\'m for free software', 'latex, or similar', 'tiling, or dynamic'):
+            if answer in ('yes', 'i\'m for free software', 'latex, or similar', 'tiling, or dynamic', 'in favour'):
                 subaverage = 1
             elif answer in ('a bit', 'a little', 'sometimes', 'yes, but not exclusively'):
                 subaverage = 0.5
-            elif answer in ('no', 'i\'m for open source', 'libreoffice, or similar', 'stacking'):
+            elif answer in ('no', 'i\'m for open source', 'libreoffice, or similar', 'stacking', 'against'):
                 subaverage = 0
             elif answer == '70+':
                 subaverage, has_70plus = 75, True
