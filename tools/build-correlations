@@ -1,120 +1,139 @@
 #!/usr/bin/env python3
 # -*- python -*-
 
-questions = [ (~0, '') # What is your position on systemd?
-            , (~1, '') # Have you tried systemd?
-            , (2, '') # Do you feel that systemd is breaking the UNIX philosophy?
+questions = [ (74, '') # Which operating systems have you used, including currently used?
+
+            , (73, '') # Is Plan 9 from Bell Labs your prefered operating system?
+            , (92, '') # Do you use the TTY?
             , (3, '') # Do you feel that systemd is bloated?
-            , (~4, '') # Do you feel that systemd is modular?
-            , (5, '') # Do you feel that systemd is monolithic?
-            , (6, '') # Do you feel that systemd is eating up other project?
-            , (~7, '') # Do you mind that systemd is eating up other project?
-            , (~8, '') # What do you think about http://0pointer.de/blog/projects/why.html?
-            , (9, '') # Have you been frustrated by bugs in systemd?
-            , (10, '') # Do you feel obligated to use systemd?
             , (11, '') # Are you afraid systemd will destroy the GNU/Linux ecosystem?
             , (12, '') # Is systemd stopping you from using some other software?
+            , (~8, '') # What do you think about http://0pointer.de/blog/projects/why.html?
+            , (9, '') # Have you been frustrated by bugs in systemd?
+            , (2, '') # Do you feel that systemd is breaking the UNIX philosophy?
+            , (~4, '') # Do you feel that systemd is modular?
+            , (~0, '') # What is your position on systemd?
+            , (5, '') # Do you feel that systemd is monolithic?
+            , (~7, '') # Do you mind that systemd is eating up other project?
+            , (10, '') # Do you feel obligated to use systemd?
             , (13, '') # Are you vocal about systemd?
-            , (~14, '') # What is your position on Red Hat?
-            , (15, '') # Is systemd a Red Hat project?
             , (~16, '') # What is your position on Avahi?
-            , (~17, '') # What is your position on PulseAudio?
+            , (45, '') # Are you a GNU Hurd fan?
+            , (50, '') # Do you prefer LaTeX over LibreOffice?
             , (~18, '') # What is your position on D-Bus?
             , (~19, '') # What is your position on kdbus?
             , (~20, '') # What is your position on Docker?
-            , (21, '') # Do you use containerisation?
-            , (~22, '') # Do you use socket activation?
-            , (~23, '') # Do you use D-Bus activation?
-            , (24, '') # Do you use cron?
-            , (25, '') # Do you use at?
             , (26, '') # Do you encrypt your /?
             , (27, '') # Do you encrypt any other partition, besides swap?
-            , (28, '') # Do you use swap?
-            , (29, '') # Do you encrypt your swap?
-            , (~30, '') # Do you use a graphical boot?
-            , (31, '') # Do you call GNU/Linux, GNU* over Linux?
-            , (32, '') # Do you call GNU/Linux by the distribution you use?
-            , (~33, '') # What is your position on smartphones?
-            , (34, '') # Do you use an FSF endorsed distro?
             , (35, '') # Are you in favour of free software over open source?
+            , (24, '') # Do you use cron?
+            , (25, '') # Do you use at?
             , (36, '') # Are you a distro developer?
             , (37, '') # Are you a web developer?
             , (38, '') # Are you a non-web developer?
             , (39, '') # Are you a system administrator?
-            , (~40, '') # Are you a gamer?
-            , (~41, '') # Do you like the Web?
-            , (42, '') # Do you like Gopher?
+            , (60, '') # Do you use *BSD?
+            , (61, '') # Do you use Plan 9 from Bell Labs?
+            , (79, '') # Have you ever used *Solaris?
+            , (68, '') # Do you use Other?
+            , (76, '') # Have you ever used GNU but with another kernel than Linux?
+            , (80, '') # Have you ever used UNIX?
+            , (81, '') # Have you ever used OS X?
+            , (83, '') #  Have you ever used Haiku or BeOS?
+            , (95, '') # Are you running a Server?
+            , (96, '') # Are you running a Desktop?
+            , (100, '') # Are you running a Netbook?
+            , (~17, '') # What is your position on PulseAudio?
+
+            , (57, '') # Which operating systems do you use?
+
+
+
+            , (94, '') # What kind of computers are you using?
+
+# 0
+            , (107, '') # Was you highest education level degree in computer science?
+            , (~112, '') # Do you watch Linux Unplugged?
+            , (85, '') # Have you ever used Other?
+            , (~53, '') # Do you use an integrated development environment?
+            , (103, '') # Are you running a Other?
+            , (84, '') # Have you ever used Other UNIX-like?
+            , (67, '') # Do you use Other UNIX-like?
+            , (~33, '') # What is your position on smartphones?
             , (~43, '') # Do you like new and shiny?
+            , (~55, '') # Do you want either Wayland or Mir to be the future display server?
+            , (54, '') # Do you prefer tiling or dynamic window managers over stacking window managers
+            , (77, '') # Have you ever used *BSD?
+            , (~30, '') # Do you use a graphical boot?
+            , (91, '') # What is your terminal usage?
+# 1
+            , (34, '') # Do you use an FSF endorsed distro?
+            , (97, '') # Are you running a Portable?
+            , (31, '') # Do you call GNU/Linux, GNU* over Linux?
+            , (78, '') # Have you ever used Plan 9 from Bell Labs?
+            , (~111, '') # Do you watch the Linux Action Show?
+            , (87, '') # Do you prefer advanced distributions?
+            , (104, '') # When did you start using GNU, or Linux?
+            , (51, '') # Do you prefer either Emacs or Vi over any other, non-similar, text editor?
+            , (59, '') # Do you use GNU but with another kernel than Linux?
+            , (~40, '') # Are you a gamer?
+            , (32, '') # Do you call GNU/Linux by the distribution you use?
+            , (28, '') # Do you use swap?
+            , (65, '') # Do you use Windows or ReactOS?
+            , (~49, '') # Do you prefer word processors over text editors?
+            , (89, '') # Do you prefer zsh?
+            , (21, '') # Do you use containerisation?
+            , (66, '') # Do you use Haiku or BeOS?
+            , (58, '') # Do you use GNU/Linux?
+# 2
+            , (~14, '') # What is your position on Red Hat?
+            , (42, '') # Do you like Gopher?
             , (44, '') # Are you a fan of suckless.org software?
-            , (45, '') # Are you a GNU Hurd fan?
+            , (56, '') # Would you rather see Wayland as the future display server than Mir?
+            , (62, '') # Do you use *Solaris?
+            , (64, '') # Do you use OS X?
+            , (52, '') # Do you prefer Emacs over Vi?
+            , (99, '') # Are you running a Ultrabook?
+            , (63, '') # Do you use UNIX?
+            , (72, '') # Is *BSD your prefered operating system?
+            , (~23, '') # Do you use D-Bus activation?
+            , (~93, '') # Do you use a login manager?
+# 3
+            , (29, '') # Do you encrypt your swap?
+            , (~69, '') # Is GNU/Linux your prefered operating system?
+            , (106, '') # What is the highest education level you have completed?
+            , (~88, '') # Do you prefer fish?
+            , (~41, '') # Do you like the Web?
+            , (110, '') # What gender do you identify as?
+# 4
+            , (71, '') # Is OS X your prefered operating system?
+            , (~70, '') # Is Windows or ReactOS your prefered operating system?
+            , (98, '') # Are you running a Laptop?
+            , (90, '') # Do you prefer another shell than bash, zsh and fish?
+            , (6, '') # Do you feel that systemd is eating up other project?
+            , (102, '') # Are you running a PDA?
+            , (101, '') # Are you running a Tablet?
+# 5
+            , (113, '') # Do you watch BSD Now?
+            , (105, '') # How old are you?
+            , (~22, '') # Do you use socket activation?
+            , (15, '') # Is systemd a Red Hat project?
+# 6
+            , (109, '') # Are you currently engaged in getting a degree in computer science?
+            , (82, '') # Have you ever used Windows or ReactOS?
+            , (~108, '') # What education level are you currently engaged in?
+            , (75, '') # Have you ever used GNU/Linux?
+# 8
+            , (~1, '') # Have you tried systemd?
+# 15
+            , (86, '') # How often do you use GNU/Linux at home?
+
+
+
             , (46, '') # What is the most important about a distro, besides freedom?
             , (47, '') # What is the second most important about a distro, besides freedom?
             , (48, '') # What is the least important about a distro, besides freedom?
-            , (~49, '') # Do you prefer word processors over text editors?
-            , (50, '') # Do you prefer LaTeX over LibreOffice?
-            , (51, '') # Do you prefer either Emacs or Vi over any other, non-similar, text editor?
-            , (52, '') # Do you prefer Emacs over Vi?
-            , (~53, '') # Do you use an integrated development environment?
-            , (54, '') # Do you prefer tiling or dynamic window managers over stacking window managers
-            , (~55, '') # Do you want either Wayland or Mir to be the future display server?
-            , (56, '') # Would you rather see Wayland as the future display server than Mir?
-            , (57, '') # Which operating systems do you use?
-            , (58, '') # Do you use GNU/Linux?
-            , (59, '') # Do you use GNU but with another kernel than Linux?
-            , (60, '') # Do you use *BSD?
-            , (61, '') # Do you use Plan 9 from Bell Labs?
-            , (62, '') # Do you use *Solaris?
-            , (63, '') # Do you use UNIX?
-            , (64, '') # Do you use OS X?
-            , (65, '') # Do you use Windows or ReactOS?
-            , (66, '') # Do you use Haiku or BeOS?
-            , (67, '') # Do you use Other UNIX-like?
-            , (68, '') # Do you use Other?
-            , (~69, '') # Is GNU/Linux your prefered operating system?
-            , (~70, '') # Is Windows or ReactOS your prefered operating system?
-            , (71, '') # Is OS X your prefered operating system?
-            , (72, '') # Is *BSD your prefered operating system?
-            , (73, '') # Is Plan 9 from Bell Labs your prefered operating system?
-            , (74, '') # Which operating systems have you used, including currently used?
-            , (~75, '') # Have you ever used GNU/Linux?
-            , (76, '') # Have you ever used GNU but with another kernel than Linux?
-            , (77, '') # Have you ever used *BSD?
-            , (78, '') # Have you ever used Plan 9 from Bell Labs?
-            , (79, '') # Have you ever used *Solaris?
-            , (80, '') # Have you ever used UNIX?
-            , (81, '') # Have you ever used OS X?
-            , (82, '') # Have you ever used Windows or ReactOS?
-            , (83, '') #  Have you ever used Haiku or BeOS?
-            , (84, '') # Have you ever used Other UNIX-like?
-            , (85, '') # Have you ever used Other?
-            , (86, '') # How often do you use GNU/Linux at home?
-            , (87, '') # Do you prefer advanced distributions?
-            , (~88, '') # Do you prefer fish?
-            , (89, '') # Do you prefer zsh?
-            , (90, '') # Do you prefer another shell than bash, zsh and fish?
-            , (91, '') # What is your terminal usage?
-            , (92, '') # Do you use the TTY?
-            , (~93, '') # Do you use a login manager?
-            , (94, '') # What kind of computers are you using?
-            , (95, '') # Are you running a Server?
-            , (96, '') # Are you running a Desktop?
-            , (97, '') # Are you running a Portable?
-            , (98, '') # Are you running a Laptop?
-            , (99, '') # Are you running a Ultrabook?
-            , (100, '') # Are you running a Netbook?
-            , (101, '') # Are you running a Tablet?
-            , (102, '') # Are you running a PDA?
-            , (103, '') # Are you running a Other?
-            , (104, '') #  When did you start using GNU, or Linux?
-            , (105, '') # How old are you?
-            , (106, '') # What is the highest education level you have completed?
-            , (107, '') # Was you highest education level degree in computer science?
-            , (108, '') # What education level are you currently engaged in?
-            , (109, '') # Are you currently engaged in getting a degree in computer science?
-            , (110, '') # What gender do you identify as?
-            , (~111, '') # Do you watch the Linux Action Show?
-            , (~112, '') # Do you watch Linux Unplugged?
-            , (113, '') # Do you watch BSD Now?
+
             ]
 
 abs_ = lambda x : (~x if x < 0 else x)
