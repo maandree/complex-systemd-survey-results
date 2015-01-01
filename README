@@ -10,6 +10,27 @@ the number of submissions are way too few
 to be certain of any drawn conclusions.
 
 
+Run `make`, this will create the files
+`data/correlations-ordered.html` and
+`data/correlations-sorted.html` with
+shows the correlations between then
+questions.
+
+You can use the command `./correlate`
+if you want to find your own correlations.
+`./correlate` will list all questions.
+`./correlate 1 2 3` will correlate questions
+question 1 against question 2 and than against
+questions 3. The answers will be sorted by
+how common they are. A question index can be
+suffixed with ^ to reverse the order, or ~
+to get the average. Additionally you can
+add the = prefix to filter answers. For example
+`./correlate 1="Against::In favour"` will only
+include the 'Against' and 'In favour' answers
+to questions 1. You can also cluster option:
+`./correlate 27="Yes::Yes, encrypted:Yes::No"`.
+
 
 :: Conclusion
 
