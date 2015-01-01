@@ -1,6 +1,7 @@
 At the end of tools/build there are some
 adjustments to make the analysis easier.
 
+
 This survey was posted on the subreddits
 /r/linuxactionshow, /r/linux, /r/linuxdev
 and /r/sysadmin. Additionally, there was
@@ -16,6 +17,10 @@ Run `make`, this will create the files
 shows the correlations between then
 questions.
 
+You should really take a look at those,
+they are very insightful.
+
+
 You can use the command `./correlate`
 if you want to find your own correlations.
 `./correlate` will list all questions.
@@ -30,6 +35,7 @@ add the = prefix to filter answers. For example
 include the 'Against' and 'In favour' answers
 to questions 1. You can also cluster option:
 `./correlate 27="Yes::Yes, encrypted:Yes::No"`.
+
 
 
 :: Conclusion
@@ -138,7 +144,6 @@ Nerdy (top) versus Geeky (bottom):
 • kdbus
 • Do not mind that systemd is eating up other projects
 • Positive opinion on http://0pointer.de/blog/projects/why.html
-
 
 
 Myth busting:
