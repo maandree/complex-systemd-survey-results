@@ -180,7 +180,9 @@ Semi-absolute qualifiers:
 • ./correlate 3="Don't know" 4="No::Don't know" 5 {,1}
 • ./correlate 15=Against 16="Against::In favour" 1
 • ./correlate 15='In favour::Against' 18+ 19+ 1
-• ./correlate {15,16,17}=Against 18+ 1
+• ./correlate 15=Against 18+ {1,16}
+• ./correlate 16=Against 18+ 1
+• ./correlate 17=Against 18+ {1,15}
 • ./correlate 79=Other 78 {,1,2,4,14,15,17,46,53,56,63,66,80,99}
 • ./correlate 79=fish {33,40,53,54,58,62,63,66,73,91}
 • ./correlate 38=Yes 39=Yes::No 61
@@ -193,10 +195,10 @@ Semi-absolute qualifiers:
 • ./correlate 25=Yes::No 26+ 27+='Yes, encrypted:Yes::Yes::No' 61
 • ./correlate 30="Against mobile phones in general" {15,22,48,53,54,56,57,61,62,63,66,73,78,80,85,91}
 
-Note: This is not shell syntax, `./correlate {15,16,17}=Against 18+ 1` means:
-      ./correlate 15=Against 18+ 1
-      ./correlate 16=Against 18+ 1
-      ./correlate 17=Against 18+ 1
+Note: This is not shell syntax, `./correlate {1,2,3}` means:
+      ./correlate 1
+      ./correlate 2
+      ./correlate 3
 
 
 
