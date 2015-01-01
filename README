@@ -10,6 +10,7 @@ the number of submissions are way too few
 to be certain of any drawn conclusions.
 
 
+
 :: Correlations notes
 
 There are correlations almost everywhere,
@@ -20,6 +21,7 @@ A surprisingly large amount of people claim to be both system administrator and 
 A whopping 36,(36) % of those that claim not to have graduated high school
 claim to have completed high school or an higher education than that.
 (However, that would only be four submissions.)
+
 
 
 :: Conclusion
@@ -34,7 +36,7 @@ Nerdy (top) versus Geeky (bottom):
 • Have used *Solaris
 • Web developer
 • cron
-• systemd does not follow the UNIX philosophy
+• Thinks systemd does not follow the UNIX philosophy
 • *BSD
 • Have used OS X
 • Feels obligated to use systemd
@@ -93,7 +95,7 @@ Nerdy (top) versus Geeky (bottom):
 • GNU without Linux
 • Have used Windows or ReactOS
 • Wayland rather than Mir
-• Use GNU/Linux often
+• Uses GNU/Linux often
 • Old age
 • ------- 50/50 line -------
 • Have tried systemd
@@ -121,7 +123,7 @@ Nerdy (top) versus Geeky (bottom):
 • systemd
 • PulseAudio
 • D-Bus
-• Is male
+• Identifies male
 • Beginners' distribution
 • Login managers
 • Thinks systemd is modular
@@ -129,4 +131,18 @@ Nerdy (top) versus Geeky (bottom):
 • Do not mind that systemd is eating up other projects
 • Positive opinion on http://0pointer.de/blog/projects/why.html
 
+
+Myth busting:
+
+Factoids:
+• systemd-haters are not distro developers
+• ... and do not know what they are talking
+• The systemd-haters are just old people
+• ... who hate change
+• It is relevant whether systemd breaks the UNIX philosophy
+• BSD users are butthurt about not being able to run systemd
+• The media is creating the systemd-controversy
+
+Facts:
+• systemd is bad for servers (or at least server administrators think)
 
