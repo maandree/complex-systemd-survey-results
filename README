@@ -163,7 +163,7 @@ Facts:
 
 
 
-:: Semi-absolute qualifiers
+:: Semi-absolute correlations
 
 ./correlate 2='It is the only thing I have used' 1
 ./correlate 8=Incorrect 1
