@@ -64,12 +64,13 @@ def unique(answers):
     result.append((last, count))
     return result
 
-def print_survey(args, subsurvey, indent = ''):
+def print_survey(args, subsurvey, indent = '', prev_answer = None):
     if len(args) == 0:
         return
     i = xint(args[0])
-    reverse = '^' not in args[0]
-    average = '~' in args[0]
+    reverse = '^' not in args[0].split('=')[0]
+    average = '~' in args[0].split('=')[0]
+    plus = '+' in args[0].split('=')[0]
     filterto = None
     mapping = None
     if '=' in args[0]:
@@ -93,6 +94,8 @@ def print_survey(args, subsurvey, indent = ''):
             answer = filterto[answer.lower()]
         elif (filterto is not None) and (answer.lower() not in filterto):
             offset += count
+            continue
+        if (prev_answer is not None) and plus and not (prev_answer == answer):
             continue
         end = offset + count
         maxcount += count
@@ -144,12 +147,10 @@ def print_survey(args, subsurvey, indent = ''):
             for j in range(len(offsets)):
                 subsubsurvey_section += subsurvey[i][offsets[j] : ends[j]]
             subsubsurvey.append(subsubsurvey_section)
-        print_survey(args, subsubsurvey, indent + '  ')
+        print_survey(args, subsubsurvey, indent + '  ', answer)
 
 def xint(s):
-    s = s.replace('^', '').replace('~', '')
-    if '=' in s:
-        s = s[:s.find('=')]
+    s = s.split('=')[0].replace('^', '').replace('~', '').replace('+', '')
     return int(s) - 1
 
 for name in [names[xint(i)] for i in sys.argv[1:]]:

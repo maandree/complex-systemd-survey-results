@@ -280,18 +280,19 @@ abbr = {'I have not started or graduated from high school' : 'N/A',
 
 
 def xint(s):
-    s = s.replace('^', '')
-    if '=' in s:
-        s = s[:s.find('=')]
+    s = s.split('=')[0].replace('^', '').replace('~', '').replace('+', '')
     return int(s) - 1
 
 questions = list(range(len(names)))
 filterto = {}
+pluses = set()
 if len(sys.argv) > 3:
     questions = []
     for arg in sys.argv[3:]:
         question = xint(arg)
         questions.append(question)
+        if '+' in arg.split('=')[0]:
+            pluses.add(question)
         if '=' in arg:
             s = arg[arg.find('=') + 1:]
             s = [x.split('.')[0].lower() for x in s.split('::')]
@@ -308,9 +309,11 @@ output.append('</tr>')
 submission_i = 0
 for submission in survey:
     suboutput = []
+    last_i, last_answer = None, None
     suboutput.append('<tr>')
     for i in questions:
         if colours[i] is None:
+            last_i, last_answer = i, submission[i]
             continue
         answer = submission[i]
         if i in filterto:
@@ -318,6 +321,9 @@ for submission in survey:
                 if (answer not in abbr) or abbr[submission[i]].lower() not in filterto[i]:
                     suboutput = None
                     break
+        if (last_i is not None) and (i in pluses) and not (submission[i] == last_answer):
+            suboutput = None
+            break
         if i == 102:
             colour = white if answer == '' else blue
         elif answer == '':
@@ -332,6 +338,7 @@ for submission in survey:
         if answer in abbr:
             answer = abbr[answer]
         suboutput.append('<td style="background-color: #%s;">%s</td>' % (colour, answer))
+        last_i, last_answer = i, submission[i]
     if suboutput is not None:
         suboutput.append('</tr>')
         submission_i += 1
