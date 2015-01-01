@@ -41,7 +41,7 @@ questions = [ (46, 'What is the most important about a distro, besides freedom?'
             , (~0, 'Do you have a <i>negative</i> position on systemd?')
             , (~112, 'Do you <i>not</i> watch Linux Unplugged?')
             , (38, 'Are you a non-web developer?')
-            , (85, 'Have you ever used anther operating system?')
+            , (85, 'Have you ever used aonther operating system?')
             , (~30, 'Do you <i>abstain</i> from using a graphical boot?')
             , (92, 'Do you use the TTY?')
             , (80, 'Have you ever used UNIX?')
