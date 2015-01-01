@@ -96,6 +96,7 @@ def print_survey(args, subsurvey, indent = '', prev_answer = None):
             offset += count
             continue
         if (prev_answer is not None) and plus and not (prev_answer == answer):
+            offset += count
             continue
         end = offset + count
         maxcount += count
