@@ -176,6 +176,12 @@ Semi-absolute qualifiers:
 • ./correlate 15=Against 16="Against::In favour" 1
 • ./correlate 79=Other 78 {,1,2,4,14,15,17,46,53,56,63,66,80,99}
 • ./correlate 79=fish {33,40,53,54,58,62,63,66,73,91}
+• ./correlate 38=Yes 39=Yes::No 61
+• ./correlate 38=Yes 39=No 56
+• ./correlate 38=Yes 39=Yes 54
+• ./correlate 38=No 39=Yes::No {1,2,53,54,64,66,78,85,91,99}
+• ./correlate 38=No 39=Yes {4,15,17,41,57,58,59,62,63,73}
+• ./correlate 38=No 39=No {18,36,40,42,46,48,56,61,80,81,84,100,101,102}
 
 
 
