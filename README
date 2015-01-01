@@ -169,6 +169,12 @@ Semi-absolute qualifiers:
 • ./correlate 82='What is that?' 1
 • ./correlate 93=1983::1984–1987::1988–1991 1
 • ./correlate 94=60–69::70+ 1
+• ./correlate 3="Don't know" 4 1
+• ./correlate 3="No" 4="Don't know" 1
+• ./correlate 3=No 4="Don't know" 5 {,1}
+• ./correlate 3="Don't know" 4="No::Don't know" 5 {,1}
+• ./correlate 15=Against 16="Against::In favour" 1
+• ./correlate 79=Other 78 {,1,2,4,14,15,17,46,53,56,63,66,80,99}
 
 
 
