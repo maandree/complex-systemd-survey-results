@@ -38,7 +38,7 @@ questions = [ (46, 'What is the most important about a distro, besides freedom?'
             , (~18, 'Do you have a <i>negative</i> position on D-Bus?')
             , (83, 'Have you ever used Haiku or BeOS?')
             , (~17, 'Do you have a <i>negative</i> position on PulseAudio?')
-            , (~0, 'What is your position on systemd?')
+            , (~0, 'Do you have a <i>negative</i> position on systemd?')
             , (~112, 'Do you <i>not</i> watch Linux Unplugged?')
             , (38, 'Are you a non-web developer?')
             , (85, 'Have you ever used anther operating system?')
@@ -177,8 +177,6 @@ colours = { ' ' : '8;5;%i' % (16 + 5 * (6 * 6 + 7))
 
 colour = lambda u, l : '\033[3%s;4%sm▀\033[00m' % (colours[u], colours[l])
 
-order = [abs_(q[0]) for q in questions_]
-
 if not html:
     for upper, lower in zipped_data:
         print(''.join(colour(u, l) for u, l in zip(upper, lower)))
@@ -196,7 +194,7 @@ white-space: nowrap; padding: 2px 22px 0 0;
 font-weight: normal;
 }
 table { border-collapse: collapse; table-layout: fixed; }
-th { height: 700px; }
+th { height: 750px; }
 th > div {
 transform: rotate(-90deg) translate(-350px, 0);
 transform-origin: left top 0; width: 0px;
@@ -238,13 +236,13 @@ print('<span style="background-color: %s">%s</span><br/>' % (colours['t'], 'Posi
 print('<span style="background-color: %s">%s</span><br/>' % (colours['b'], 'Positive correlation to lack of knowledge or opinion'))
 print('<span style="background-color: %s">%s</span><br/>' % (colours['p'], 'Negative correlation + Positive correlation to lack of knowledge or opinion'))
 print('</td>')
-for _, question in questions:
+for _, question in questions_:
     print('<th><div>%s</div></th>' % question.replace('<i>', '<b>').replace('</i>', '</b>'))
 print('</tr>')
 i = 0
 for row in data:
     print('<tr>')
-    print('<td>%s</td>' % questions[i][1].replace('<i>', '<b>').replace('</i>', '</b>'))
+    print('<td>%s</td>' % questions_[i][1].replace('<i>', '<b>').replace('</i>', '</b>'))
     for cell in row:
         print('<td style="background-color: %s"></td>' % colours[cell])
     print('</tr>')

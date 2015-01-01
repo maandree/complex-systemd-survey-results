@@ -20,10 +20,10 @@ data/results: systemd-survey.csv tools/build
 data/results.html: data/results tools/build-html
 	tools/build-html $< $@
 
-data/correlations-ordered.html: correlations.csv
+data/correlations-ordered.html: correlations.csv tools/build-correlations
 	tools/build-correlations --html --ordered > $@
 
-data/correlations-sorted.html: correlations.csv
+data/correlations-sorted.html: correlations.csv tools/build-correlations
 	tools/build-correlations --html > $@
 
 
