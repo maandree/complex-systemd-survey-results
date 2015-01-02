@@ -280,12 +280,13 @@ abbr = {'I have not started or graduated from high school' : 'N/A',
 
 
 def xint(s):
-    s = s.split('=')[0].replace('^', '').replace('~', '').replace('+', '')
+    s = s.split('=')[0].replace('^', '').replace('~', '').replace('+', '').replace('!', '')
     return int(s) - 1
 
 questions = list(range(len(names)))
 filterto = {}
 pluses = set()
+answered_only = set()
 if len(sys.argv) > 3:
     questions = []
     for arg in sys.argv[3:]:
@@ -293,6 +294,8 @@ if len(sys.argv) > 3:
         questions.append(question)
         if '+' in arg.split('=')[0]:
             pluses.add(question)
+        if '!' in arg.split('=')[0]:
+            answered_only.add(question)
         if '=' in arg:
             s = arg[arg.find('=') + 1:]
             s = [x.split('.')[0].lower() for x in s.split('::')]
@@ -322,6 +325,9 @@ for submission in survey:
                     suboutput = None
                     break
         if (last_i is not None) and (i in pluses) and not (submission[i] == last_answer):
+            suboutput = None
+            break
+        if (i in answered_only) and (submission[i] == ''):
             suboutput = None
             break
         if i == 102:

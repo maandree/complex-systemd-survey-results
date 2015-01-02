@@ -71,6 +71,7 @@ def print_survey(args, subsurvey, indent = '', prev_answer = None):
     reverse = '^' not in args[0].split('=')[0]
     average = '~' in args[0].split('=')[0]
     plus = '+' in args[0].split('=')[0]
+    answered_only = '!' in args[0].split('=')[0]
     filterto = None
     mapping = None
     if '=' in args[0]:
@@ -96,6 +97,9 @@ def print_survey(args, subsurvey, indent = '', prev_answer = None):
             offset += count
             continue
         if (prev_answer is not None) and plus and not (prev_answer == answer):
+            offset += count
+            continue
+        if answered_only and (answer == ''):
             offset += count
             continue
         end = offset + count
@@ -151,7 +155,7 @@ def print_survey(args, subsurvey, indent = '', prev_answer = None):
         print_survey(args, subsubsurvey, indent + '  ', answer)
 
 def xint(s):
-    s = s.split('=')[0].replace('^', '').replace('~', '').replace('+', '')
+    s = s.split('=')[0].replace('^', '').replace('~', '').replace('+', '').replace('!', '')
     return int(s) - 1
 
 for name in [names[xint(i)] for i in sys.argv[1:]]:
