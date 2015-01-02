@@ -42,7 +42,7 @@ answers to questions 1. You can also cluster option:
 
 :: Conclusion
 
-Again, that a look at `data/correlations-ordered.html`.
+Again, take a look at `data/correlations-ordered.html`.
 
 
 
@@ -96,7 +96,7 @@ systemd-lovers (top) versus systemd-haters (bottom):
 • Phones and smartphones in particular
 • Have used GNU/Linux
 • Have tried systemd
-• ------- 50/50 line -------
+• ─────── 50/50 line ───────
 • Old age
 • Uses GNU/Linux often
 • Wayland rather than Mir
