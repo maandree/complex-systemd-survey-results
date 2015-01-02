@@ -63,7 +63,7 @@ Facts:
 
 
 
-systemd-lovers (top) versus systemd-haters (bottom):
+Group A (top) versus Group B (bottom):
 • Positive opinion on http://0pointer.de/blog/projects/why.html
 • Do not mind that systemd is eating up other projects
 • kdbus
@@ -169,17 +169,16 @@ systemd-lovers (top) versus systemd-haters (bottom):
 • Encryption
 
 By looking at how some topics rank and I conclude that
-this systemd-lovers are on the geeky side and systemd-haters
-are on the nerdy side. For example, new-and-shiny is obviously
-a geek thing. This can also be strengthened by looking at
-what known geeks and known nerds think.
-(I know some think this is silly, but I personally have
-never given a rats ass about the geek–nerd topic. So I
-really don't care, but it seems to be a strong correlation
-between that and most questions. And geeks and nerds are
-really different from each other so I don't see how it is silly.)
-But if you have some other theory you can tell me and I will
-include it.
+Group A are geeks and Group B are nerds. For example,
+new-and-shiny is obviously a geek thing. This can also
+be strengthened by looking at what known geeks and known
+nerds think. (I know some think this is silly, but I
+personally have never given a rats ass about the geek–nerd
+topic. So I really don't care, but it seems to be a strong
+correlation between that and most questions. And geeks and
+nerds are really different from each other so I don't see
+how it is silly.) But if you have some other theory you can
+tell me and I will include it.
 
 
 
