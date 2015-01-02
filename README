@@ -222,6 +222,8 @@ tell me and I will include it.
 ./correlate 13=Yes 40=No::Neither:No 25=Yes {1,4,7,23,26,27,36,53,56,79,80,98}
 ./correlate 67=Yes 68+ 74+ 13+ {1-5,16,23-24,30,32,35-38,43,46,48,53,55,61,66,70,72,73,78,84,85,91,99,101,102}
 ./correlate 31=Yes 64='GNU/Linux' 59=No 60+ {46,53,54,61,78,79,80}
+./correlate 34=No 35+ 36+ {38,56-58,63,91}
+./correlate 34='Yes, full-stack:Yes::Yes, back-end (exclusively or preferably):Yes' 35+ 36+ 61
 
 Note: This is not shell syntax, `./correlate {1,2,3}` means:
       ./correlate 1
