@@ -28,122 +28,22 @@ if you want to find your own correlations.
 question 1 against question 2 and than against
 questions 3. The answers will be sorted by
 how common they are. A question index can be
-suffixed with ^ to reverse the order, or ~
-to get the average. Additionally you can
-add the = prefix to filter answers. For example
-`./correlate 1="Against::In favour"` will only
-include the 'Against' and 'In favour' answers
-to questions 1. You can also cluster option:
+suffixed with ^ to reverse the order, ~ suffix
+to get the average or the + suffix to only include
+submissions where the answer is the same as in
+the previous questions in command line. Additionally
+you can add the = suffix to filter answers.
+For example `./correlate 1="Against::In favour"`
+will only include the 'Against' and 'In favour'
+answers to questions 1. You can also cluster option:
 `./correlate 27="Yes::Yes, encrypted:Yes::No"`.
 
 
 
 :: Conclusion
 
-Nerdy (top) versus Geeky (bottom):
-• Encryption
-• Thinks systemd is bloated
-• Thinks systemd with destroy the GNU/Linux operating system
-• Running a server
-• Thinks systemd is monolithic
-• GNU/Linux
-• Have used *Solaris
-• Web developer
-• cron
-• Thinks systemd does not follow the UNIX philosophy
-• *BSD
-• Have used OS X
-• Feels obligated to use systemd
-• Have used Haiku or BeOS
-• Have used non-UNIX-like operating systems that are uncommon today
-• TTY
-• Have used UNIX
-• Have used Plan 9 from Bell Labs
-• Have been frustrated by bugs in systemd
-• Have used GNU without Linux
-• systemd is eating up other projects
-• systemd stopping you from using some other software
-• Prefers Plan 9 from Bell Labs
-• Have you ever used GNU/Linux
-• Have used UNIX-like operating systems that are uncommon today
-• Emacs and Vi
-• Plan 9 from Bell Labs
-• Vocal about systemd
-• Non-UNIX-like operating systems that are uncommon today
-• Emacs
-• Shells that are uncommon for GNU/Linux
-• High education
-• GNU Hurd
-• System administration
-• Have used *BSD
-• Other computer form-factors
-• Calling GNU/Linux by the name of the used distribution
-• Netbooks
-• Desktop computers
-• FSF-endorsed distributions
-• Portable computers
-• Containerisation
-• *Solaris
-• Prefers *BSD
-• at
-• Swap partition
-• zsh
-• Laptops
-• Distribution developer
-• OS X
-• BSD Now
-• LaTeX
-• Gopher
-• “GNU/Linux” rather than “Linux”
-• suckless.org
-• Prefers OS X
-• UNIX
-• Free software
-• Computer science
-• Tablet
-• Systemd is a Red Hat-project
-• PDA
-• Ultrabooks
-• Windows and ReactOS
-• Have used GNU for a long time
-• GNU without Linux
-• Have used Windows or ReactOS
-• Wayland rather than Mir
-• Uses GNU/Linux often
-• Old age
-• ------- 50/50 line -------
-• Have tried systemd
-• Have used GNU/Linux
-• Phones and smartphones in particular
-• Gamer
-• Socket activation
-• The Web
-• Prefers GNU/Linux
-• Red Hat
-• fish
-• Graphical user interfaces
-• Linux Action Show
-• Word processors
-• Integrated development environments
-• Avahi
-• Wayland and Mir
-• Stacking window managers
-• New-and-shiny
-• Docker
-• D-Bus activation
-• Graphical boot
-• Non-Web developer
-• Linux Unplugged
-• systemd
-• PulseAudio
-• D-Bus
-• Identifies male
-• Beginners' distribution
-• Login managers
-• Thinks systemd is modular
-• kdbus
-• Do not mind that systemd is eating up other projects
-• Positive opinion on http://0pointer.de/blog/projects/why.html
+Again, that a look at `data/correlations-ordered.html`.
+
 
 
 Myth busting:
@@ -160,6 +60,126 @@ Factoids:
 
 Facts:
 • systemd is bad for servers (or at least server administrators think)
+
+
+
+systemd-lovers (top) versus systemd-haters (bottom):
+• Positive opinion on http://0pointer.de/blog/projects/why.html
+• Do not mind that systemd is eating up other projects
+• kdbus
+• Thinks systemd is modular
+• Login managers
+• Beginners' distribution
+• Identifies male
+• D-Bus
+• PulseAudio
+• systemd
+• Linux Unplugged
+• Non-Web developer
+• Graphical boot
+• D-Bus activation
+• Docker
+• New-and-shiny
+• Stacking window managers
+• Wayland and Mir
+• Avahi
+• Integrated development environments
+• Word processors
+• Linux Action Show
+• Graphical user interfaces
+• fish
+• Red Hat
+• Prefers GNU/Linux
+• The Web
+• Socket activation
+• Gamer
+• Phones and smartphones in particular
+• Have used GNU/Linux
+• Have tried systemd
+• ------- 50/50 line -------
+• Old age
+• Uses GNU/Linux often
+• Wayland rather than Mir
+• Have used Windows or ReactOS
+• GNU without Linux
+• Have used GNU for a long time
+• Windows and ReactOS
+• Ultrabooks
+• PDA
+• Systemd is a Red Hat-project
+• Tablet
+• Computer science
+• Free software
+• UNIX
+• Prefers OS X
+• suckless.org
+• “GNU/Linux” rather than “Linux”
+• Gopher
+• LaTeX
+• BSD Now
+• OS X
+• Distribution developer
+• Laptops
+• zsh
+• Swap partition
+• at
+• Prefers *BSD
+• *Solaris
+• Containerisation
+• Portable computers
+• FSF-endorsed distributions
+• Desktop computers
+• Netbooks
+• Calling GNU/Linux by the name of the used distribution
+• Other computer form-factors
+• Have used *BSD
+• System administration
+• GNU Hurd
+• High education
+• Shells that are uncommon for GNU/Linux
+• Emacs
+• Non-UNIX-like operating systems that are uncommon today
+• Vocal about systemd
+• Plan 9 from Bell Labs
+• Emacs and Vi
+• Have used UNIX-like operating systems that are uncommon today
+• Have you ever used GNU/Linux
+• Prefers Plan 9 from Bell Labs
+• systemd stopping you from using some other software
+• systemd is eating up other projects
+• Have used GNU without Linux
+• Have been frustrated by bugs in systemd
+• Have used Plan 9 from Bell Labs
+• Have used UNIX
+• TTY
+• Have used non-UNIX-like operating systems that are uncommon today
+• Have used Haiku or BeOS
+• Feels obligated to use systemd
+• Have used OS X
+• *BSD
+• Thinks systemd does not follow the UNIX philosophy
+• cron
+• Web developer
+• Have used *Solaris
+• GNU/Linux
+• Thinks systemd is monolithic
+• Running a server
+• Thinks systemd with destroy the GNU/Linux operating system
+• Thinks systemd is bloated
+• Encryption
+
+By looking at how some topics rank and I conclude that
+this systemd-lovers are on the geeky side and systemd-haters
+are on the nerdy side. For example, new-and-shiny is obviously
+a geek thing. This can also be strengthened by looking at
+what known geeks and known nerds think.
+(I know some think this is silly, but I personally have
+never given a rats ass about the geek–nerd topic. So I
+really don't care, but it seems to be a strong correlation
+between that and most questions. And geeks and nerds are
+really different from each other so I don't see how it is silly.)
+But if you have some other theory you can tell me and I will
+include it.
 
 
 
@@ -219,8 +239,13 @@ claim to have completed high school or an higher education than that.
 
 
 
-:: Links
+:: Source
 
-https://docs.google.com/forms/d/1gCKnFnN_NYHzu5Y6dDnmf25TBw2mAr7TRiyRprz3-Vg/viewanalytics
 https://docs.google.com/spreadsheets/d/1aEYQllnknaZbqh_jqdrkjRJDbk521hOMwCYgCPxspMc/pubhtml
+
+
+:: Additional links
+
+If you only want to see how common answers are (and not how people answered):
+https://docs.google.com/forms/d/1gCKnFnN_NYHzu5Y6dDnmf25TBw2mAr7TRiyRprz3-Vg/viewanalytics
 
