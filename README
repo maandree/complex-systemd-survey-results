@@ -226,6 +226,46 @@ Note: This is not shell syntax, `./correlate {1,2,3}` means:
 
 
 
+:: Observations
+
+• A third are against systemd (conclusion explains why)
+
+• 28 % think systemd breaks the UNIX philosophy,
+  28 % think systemd is not breaking the UNIX philosophy,
+  33 % think systemd breaks the UNIX philosophy a bit
+
+• 37 % think systemd is monolithic,
+  37 % think systemd is not monolithic
+
+• 24 % have been frustrated by bugs in systemd,
+  26 % if only counting those that have tried systemd
+
+• 10 % are against smartphones, of which 34 % are against
+  mobil phones, however only 68 % are in favour if smartphones
+
+• 50 % of those that are attending university with a long
+  education are for free software and 38 % are for open source,
+  this is the only education-group where free software is
+  more popular, apart from the those that are becoming docents
+  where none (of the 6 submitters) are for open source
+
+• 16 % are in favour of Gopher, only 22 % are against it
+
+• Tiling and dynamic window managers are just (slightly more)
+  popular as stacking window managers
+
+• Wayland and Mir: 72 %
+  ‣ Wayland: 96 %
+  ‣ Mir: 4 %
+  X and other: 19 %
+  ‣ X: 81 %
+  ‣ other: 19 %
+  neither: 9 %
+
+• 13 % like distributions for beginners
+
+
+
 :: Correlation notes
 
 There are correlations almost everywhere,
